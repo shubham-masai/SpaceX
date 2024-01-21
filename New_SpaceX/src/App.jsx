@@ -1,9 +1,7 @@
+ 
 import React from 'react'
 import Navbar from './components/Navbar'
-import Home from './components/Home'
-import RocketBusiness from './components/RocketBusiness'
-import FeedBack from './components/FeedBack'
-import Footer from './components/Footer'
+import AllRoutes from './components/AllRoutes'
 
 const App = () => {
   return (
@@ -12,19 +10,10 @@ const App = () => {
       <div className='sm:px-16 px-6 flex justify-center items-center'>
         <div className='xl:max-w-[1280px] w-full'>
           <Navbar />
-        </div>
-      </div>
-
-      <div className='bg-primary sm:px-16 px-6 flex justify-center items-start'>
-        <div className='xl:max-w-[1280px] w-full'>
-          <Home />
-          <RocketBusiness/>
-          <FeedBack/>
-          <Footer/>
+          <AllRoutes/>
         </div>
       </div>
     </div>
   )
 }
-
 export default App
