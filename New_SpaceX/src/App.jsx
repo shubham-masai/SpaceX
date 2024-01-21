@@ -2,6 +2,8 @@ import React from 'react'
 import Navbar from './components/Navbar'
 import Home from './components/Home'
 import RocketBusiness from './components/RocketBusiness'
+import FeedBack from './components/FeedBack'
+import Footer from './components/Footer'
 
 const App = () => {
   return (
@@ -17,6 +19,8 @@ const App = () => {
         <div className='xl:max-w-[1280px] w-full'>
           <Home />
           <RocketBusiness/>
+          <FeedBack/>
+          <Footer/>
         </div>
       </div>
     </div>
