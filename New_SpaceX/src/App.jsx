@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from './components/Navbar'
 import Home from './components/Home'
+import RocketBusiness from './components/RocketBusiness'
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
       <div className='bg-primary sm:px-16 px-6 flex justify-center items-start'>
         <div className='xl:max-w-[1280px] w-full'>
           <Home />
+          <RocketBusiness/>
         </div>
       </div>
     </div>
