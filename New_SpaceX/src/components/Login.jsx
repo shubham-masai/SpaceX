@@ -1,26 +1,43 @@
-import React, { useState } from 'react';
-import { rocket1, logo,rocket7 } from '../assets';
+import React, { useEffect, useState } from 'react';
+import { rocket1, logo, rocket7 } from '../assets';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
+import { loginUser } from '../redux/action';
+import { useNavigate} from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
+  const { isAuth, isError, errorMessage } = useSelector((store) => {
+    return {
+      isAuth: store.isAuth,
+      isError: store.isError,
+      errorMessage: store.errorMessage,
+    };
+  }, shallowEqual);
 
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
+    let userData = { email, password };
+    await loginUser(dispatch, userData,navigate);
     setEmail('');
     setPassword('');
   };
 
+  // useEffect(() => {
+  //   const storedToken = localStorage.getItem('spacextoken');
+  //   if (storedToken) {
+  //     navigate('/capsules');
+  //   }
+  // }, [isAuth,navigate]);
+
+  
+
+
   return (
+
     <div className="flex justify-center items-center h-screen flex-col sm:flex-row">
       <div className='w-[50%] h-[80%] text-white relative'>
         <img
@@ -42,6 +59,12 @@ const Login = () => {
 
           {/* Login Form */}
           <form onSubmit={handleSubmit} className="relative">
+            {isError && (
+              <div className="mb-4 text-red-500">
+                {errorMessage}
+              </div>
+            )}
+
             <div className="mb-4">
               <label htmlFor="email" className="block text-md font-medium text-gray-800">
                 Email
@@ -51,7 +74,7 @@ const Login = () => {
                 id="email"
                 name="email"
                 value={email}
-                onChange={handleEmailChange}
+                onChange={(e) => { setEmail(e.target.value) }}
                 className="mt-1 p-2 w-full rounded-md inputfiled text-dimWhite"
                 required
                 style={{ border: 'none !important', outline: 'none' }}
@@ -67,7 +90,7 @@ const Login = () => {
                 id="password"
                 name="password"
                 value={password}
-                onChange={handlePasswordChange}
+                onChange={(e) => { setPassword(e.target.value) }}
                 className="mt-1 p-2 w-full rounded-md inputfiled text-dimWhite"
                 required
                 style={{ border: 'none !important', outline: 'none' }}

@@ -1,28 +1,41 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { rocket1, logo } from '../assets';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { signUpuser } from '../redux/action';
 
 const Signup = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleUsername = (e) => {
-    setEmail(e.target.value);
-  };
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
+  const { isAuth, isError, errorMessage } = useSelector((store) => {
+    return {
+      isAuth: store.isAuth,
+      isError: store.isError,
+      errorMessage: store.errorMessage,
+    };
+  }, shallowEqual);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
+    let userData = { username, email, password };
+    await signUpuser(dispatch, userData, navigate);
+    setUsername('');
     setEmail('');
     setPassword('');
   };
+
+  // useEffect(() => {
+  //   const storedToken = localStorage.getItem('spacextoken');
+  //   if (storedToken) {
+  //     navigate('/capsules');
+  //   }
+  // }, [navigate]);
+
 
   return (
     <div className="flex justify-center items-center h-screen flex-col sm:flex-row">
@@ -55,7 +68,7 @@ const Signup = () => {
                 id="username"
                 name="username"
                 value={username}
-                onChange={handleUsername}
+                onChange={(e) => { setUsername(e.target.value) }}
                 className="mt-1 p-2 w-full rounded-md inputfiled text-dimWhite"
                 required
                 style={{ border: 'none !important', outline: 'none' }}
@@ -71,7 +84,7 @@ const Signup = () => {
                 id="email"
                 name="email"
                 value={email}
-                onChange={handleEmailChange}
+                onChange={(e) => { setEmail(e.target.value) }}
                 className="mt-1 p-2 w-full rounded-md inputfiled text-dimWhite"
                 required
                 style={{ border: 'none !important', outline: 'none' }}
@@ -87,7 +100,7 @@ const Signup = () => {
                 id="password"
                 name="password"
                 value={password}
-                onChange={handlePasswordChange}
+                onChange={(e) => { setPassword(e.target.value) }}
                 className="mt-1 p-2 w-full rounded-md inputfiled text-dimWhite"
                 required
                 style={{ border: 'none !important', outline: 'none' }}

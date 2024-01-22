@@ -19,6 +19,12 @@ const Navbar = () => {
           to="/"
         />
         <NavItem
+          title="Capsule"
+          active={active}
+          onClick={() => setActive('Home')}
+          to="/capsules"
+        />
+        <NavItem
           title="Login"
           active={active}
           onClick={() => setActive('Login')}
@@ -56,6 +62,15 @@ const Navbar = () => {
                 setToggle(false);
               }}
               to="/"
+            />
+            <NavItem
+              title="Capsule"
+              active={active}
+              onClick={() => {
+                setActive('capsule');
+                setToggle(false);
+              }}
+              to="/capsules"
             />
             <NavItem
               title="Login"
