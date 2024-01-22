@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useState } from 'react';
 import { rocket1, logo } from '../assets';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -29,21 +29,21 @@ const Signup = () => {
     setPassword('');
   };
 
-  
+
   return (
-    <div className="flex justify-center items-center h-screen flex-col sm:flex-row">
-      <div className='w-[50%] h-[80%] text-white relative'>
+    <div className="flex md:flex-row flex-col sm:py-16 py-6">
+      <div className="flex-1 flex flex justify-center items-center md:my-0 my-10 relative">
         <img
           src={rocket1}
           alt="Rocket"
-          className="w-[100%] h-[100%]"
+          className="w-[100%] h-[100%] relative z-[5]" 
         />
         <div className="absolute z-[0] w-[45%] h-[45%] top-0 pink__gradient" />
         <div className="absolute z-[10] w-[20%] h-[100%] rounded-full white__gradient" />
         <div className="absolute z-[0] w-[60%] h-[50%] right-20 bottom-20 blue__gradient" />
       </div>
 
-      <div className="w-full sm:w-1/2 md:w-2/3 p-4">
+      <div className="flex-1 flex justify-center items-start flex-col xl:px-0 sm:px-16 px-6">
         <div className="max-w-md mx-auto">
           <img src={logo} alt="SpaceX Logo" className="mb-8 mx-auto" />
 
@@ -52,6 +52,12 @@ const Signup = () => {
 
           {/* Signup Form */}
           <form onSubmit={handleSubmit} className="relative">
+            {isError && (
+              <div className="mb-4 text-red-500">
+                {errorMessage}
+              </div>
+            )}
+
             <div className="mb-4">
               <label htmlFor="email" className="block text-md font-medium text-gray-800">
                 Username
