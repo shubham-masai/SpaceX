@@ -46,7 +46,6 @@ const Login = () => {
           <h2 className="font-poppins text-dimWhite mb-1">Welcome Back!</h2>
           <p className="font-poppins text-dimWhite mb-3">Please sign in to your account</p>
 
-          {/* Login Form */}
           <form onSubmit={handleSubmit} className="relative">
             {isError && (
               <div className="mb-4 text-red-500">

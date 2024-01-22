@@ -33,6 +33,7 @@ const Signup = () => {
   return (
     <div className="flex md:flex-row flex-col sm:py-16 py-6">
       <div className="flex-1 flex flex justify-center items-center md:my-0 my-10 relative">
+       
         <img
           src={rocket1}
           alt="Rocket"
