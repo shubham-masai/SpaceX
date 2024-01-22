@@ -1,8 +1,23 @@
-# React + Vite
+# SpaceX
+ This project is a React web application designed to share SpaceX data with the world. It utilizes SpaceX's open-sourced data available through SpaceX API to provide users with information about SpaceX rockets, launches, and spacecraft.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Technologies Used
+ **Front-End:** React | Redux | Tailwind
+ 
+ **Back-End  :** SpaceX API
+ 
+## Features
+Rocket Information: Explore details about various SpaceX rockets, including specifications and launch statistics.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+![Screenshot (2298)](https://github.com/shubham-masai/Shubham-Frontend_Developer/assets/130532573/0a40fa82-3c72-42eb-86c6-0c0116537ff9)
+
+![Screenshot (2302)](https://github.com/shubham-masai/Shubham-Frontend_Developer/assets/130532573/07e03ca6-6320-4c55-ad62-1abca7b8ff47)
+
+![Screenshot (2303)](https://github.com/shubham-masai/Shubham-Frontend_Developer/assets/130532573/5c59bff8-55c3-414c-947b-b7372bdba5d3)
+
+
+![Screenshot (2304)](https://github.com/shubham-masai/Shubham-Frontend_Developer/assets/130532573/dd095875-910f-4404-b04e-4d48312071fb)
+
+![Screenshot (2301)](https://github.com/shubham-masai/Shubham-Frontend_Developer/assets/130532573/c8e54152-d361-40ce-96b1-657dfdebc5cd)
