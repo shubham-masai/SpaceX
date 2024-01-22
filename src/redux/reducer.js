@@ -1,10 +1,4 @@
-import {
-  GET_FAILURE,
-  GET_REQUEST,
-  GET_SIGNIN_SUCCESS,
-  GET_SIGNUP_SUCCESS,
-  GET_ALL_DATA_SUCCESS
-} from "./actionTypes";
+import { GET_REQUEST, GET_SIGNIN_SUCCESS, GET_SIGNUP_SUCCESS, GET_ALL_DATA_SUCCESS, GET_FAILURE } from "./actionType";
 
 const initialState = {
   isAuth: false,
@@ -26,15 +20,19 @@ export function reducer(state = initialState, { type, payload }) {
   }
 
   if (type === GET_SIGNIN_SUCCESS) {
-    return { ...state, token: payload, isAuth: true };
+    return { ...state, token: payload, isAuth: true, isError: false, isLoading: false };
   }
 
   if (type === GET_SIGNUP_SUCCESS) {
-    return { ...state, token: payload, isAuth: true };
+    return { ...state, token: payload, isAuth: true, isError: false, isLoading: false };
   }
 
   if (type === GET_ALL_DATA_SUCCESS) {
-    return { ...state, spacexData: payload }
+    return { ...state, spacexData: payload, isError: false, isLoading: false }
+  }
+
+  if (type === 'SET_PAGE') {
+    return { ...state, currentPage: payload };
   }
   return state;
 }
