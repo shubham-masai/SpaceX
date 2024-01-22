@@ -29,14 +29,7 @@ const Signup = () => {
     setPassword('');
   };
 
-  // useEffect(() => {
-  //   const storedToken = localStorage.getItem('spacextoken');
-  //   if (storedToken) {
-  //     navigate('/capsules');
-  //   }
-  // }, [navigate]);
-
-
+  
   return (
     <div className="flex justify-center items-center h-screen flex-col sm:flex-row">
       <div className='w-[50%] h-[80%] text-white relative'>

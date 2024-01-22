@@ -34,7 +34,7 @@ export async function signUpuser(dispatch, userData) {
   }
 }
 
-export async function getAllData(dispatch) {
+export async function fetchAllCapsules(dispatch) {
   try {
     dispatch({ type: GET_REQUEST });
     const res = await axios.get("https://api.spacexdata.com/v3/capsules");

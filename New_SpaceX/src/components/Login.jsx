@@ -24,18 +24,7 @@ const Login = () => {
     await loginUser(dispatch, userData,navigate);
     setEmail('');
     setPassword('');
-  };
-
-  // useEffect(() => {
-  //   const storedToken = localStorage.getItem('spacextoken');
-  //   if (storedToken) {
-  //     navigate('/capsules');
-  //   }
-  // }, [isAuth,navigate]);
-
-  
-
-
+  }; 
   return (
 
     <div className="flex justify-center items-center h-screen flex-col sm:flex-row">

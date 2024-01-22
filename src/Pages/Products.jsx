@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { getAllData } from "../redux/action";
-import { Link } from "react-router-dom";
-import { data } from "autoprefixer";
+ 
 import Navbar from "../component/Navbar";
 const Products = () => {
   const [flag, setFlag] = useState(null);

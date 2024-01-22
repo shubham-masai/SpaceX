@@ -11,4 +11,5 @@ import instagram from "./instagram.svg"
 import facebook from "./facebook.svg"
 import linkedin from "./linkedin.svg"
 import twitter from "./twitter.svg"
-export {logo, menu, close, arrowUp, discount,rocket,rocket1,quotes, instagram,facebook,linkedin, twitter, rocket7}
+import searchIcon from "./searchIcon.png"
+export {logo, menu, close, arrowUp, discount,rocket,rocket1,quotes, instagram,facebook,linkedin, twitter, rocket7, searchIcon}
