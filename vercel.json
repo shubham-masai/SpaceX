@@ -1,0 +1,11 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "New_SpaceX/**",
+        "use": "@vercel/static-build",
+        "config": { "zeroConfig": true }
+      }
+    ]
+  }
+  
