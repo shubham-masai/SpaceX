@@ -17,7 +17,6 @@ Rocket Information: Explore details about various SpaceX rockets, including spec
 
 ![Screenshot (2303)](https://github.com/shubham-masai/Shubham-Frontend_Developer/assets/130532573/5c59bff8-55c3-414c-947b-b7372bdba5d3)
 
-
-![Screenshot (2304)](https://github.com/shubham-masai/Shubham-Frontend_Developer/assets/130532573/dd095875-910f-4404-b04e-4d48312071fb)
+![Screenshot (2307)](https://github.com/shubham-masai/Shubham-Frontend_Developer/assets/130532573/be74479b-5682-4734-ace4-6318a5ce928a)
 
 ![Screenshot (2301)](https://github.com/shubham-masai/Shubham-Frontend_Developer/assets/130532573/c8e54152-d361-40ce-96b1-657dfdebc5cd)
