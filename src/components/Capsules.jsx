@@ -35,17 +35,16 @@ const Capsules = () => {
 
     const handleSearchData = () => {
         if (searchby && searchItem) {
-
-            const filteredData = spacexData.filter((capsule) => {
-                const itemValue = String(capsule[searchby]).toLowerCase();
-                const searchTermLower = searchItem.toLowerCase();
-                return itemValue.includes(searchTermLower);
-            });
-            setFilteredData(filteredData);
+          const filteredData = spacexData.filter((capsule) => {
+            const itemValue = String(capsule[searchby]).toLowerCase();
+            const searchTermLower = searchItem.toLowerCase();
+            return itemValue.includes(searchTermLower);
+          });
+          setFilteredData(filteredData);
         } else {
-            console.log('Please select both search criteria');
+          setFilteredData([]);
         }
-    };
+      };
 
     return (
         <div className="container mx-auto p-4 min-h-screen">

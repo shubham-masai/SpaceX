@@ -1,10 +1,18 @@
 import React, { useState } from 'react';
-import { logo, menu, close} from '../assets';
-import { Link } from 'react-router-dom';
+import { logo, menu, close } from '../assets';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [active, setActive] = useState('Home');
   const [toggle, setToggle] = useState(false);
+  const navigate = useNavigate();
+
+  const isLoggedIn = !!localStorage.getItem('spacextoken');
+
+  const handleLogout = () => {
+    localStorage.removeItem('spacextoken');
+    navigate('/');
+  };
 
   return (
     <nav className="w-full flex py-6 justify-between items-center navbar">
@@ -12,31 +20,16 @@ const Navbar = () => {
 
       {/* Main navigation links for larger screens */}
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">
-        <NavItem
-          title="Home"
-          active={active}
-          onClick={() => setActive('Home')}
-          to="/"
-        />
-        <NavItem
-          title="Capsule"
-          active={active}
-          onClick={() => setActive('Home')}
-          to="/capsules"
-        />
-        <NavItem
-          title="Login"
-          active={active}
-          onClick={() => setActive('Login')}
-          to="/login"
-        />
-        <NavItem
-          title="SignUp"
-          active={active}
-          onClick={() => setActive('SignUp')}
-          to="/signup"
-          isLast
-        />
+        <NavItem title="Home" active={active} onClick={() => setActive('Home')} to="/" />
+        <NavItem title="Capsule" active={active} onClick={() => setActive('Capsule')} to="/capsules" />
+        {isLoggedIn ? (
+          <NavItem title="Logout" active={active} onClick={handleLogout} isLast />
+        ) : (
+          <>
+            <NavItem title="Login" active={active} onClick={() => setActive('Login')} to="/login" />
+            <NavItem title="SignUp" active={active} onClick={() => setActive('SignUp')} to="/signup" isLast />
+          </>
+        )}
       </ul>
 
       {/* Mobile navigation for smaller screens */}
@@ -72,25 +65,38 @@ const Navbar = () => {
               }}
               to="/capsules"
             />
-            <NavItem
-              title="Login"
-              active={active}
-              onClick={() => {
-                setActive('Login');
-                setToggle(false);
-              }}
-              to="/login"
-            />
-            <NavItem
-              title="SignUp"
-              active={active}
-              onClick={() => {
-                setActive('SignUp');
-                setToggle(false);
-              }}
-              to="/signup"
-              isLast
-            />
+            {isLoggedIn ? (
+              <>
+                <NavItem
+                  title="Logout"
+                  active={active}
+                  onClick={handleLogout}
+                  isLast
+                />
+              </>
+            ) : (
+              <>
+                <NavItem
+                  title="Login"
+                  active={active}
+                  onClick={() => {
+                    setActive('Login');
+                    setToggle(false);
+                  }}
+                  to="/login"
+                />
+                <NavItem
+                  title="SignUp"
+                  active={active}
+                  onClick={() => {
+                    setActive('SignUp');
+                    setToggle(false);
+                  }}
+                  to="/signup"
+                  isLast
+                />
+              </>
+            )}
           </ul>
         </div>
       </div>
@@ -98,7 +104,6 @@ const Navbar = () => {
   );
 };
 
- 
 const NavItem = ({ title, active, onClick, to, isLast }) => (
   <li
     className={`font-poppins font-normal cursor-pointer text-[16px] ${active === title ? 'text-white' : 'text-dimWhite'

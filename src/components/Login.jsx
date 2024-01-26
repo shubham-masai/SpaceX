@@ -10,9 +10,8 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { isAuth, isError, errorMessage } = useSelector((store) => {
+  const {isError, errorMessage } = useSelector((store) => {
     return {
-      isAuth: store.isAuth,
       isError: store.isError,
       errorMessage: store.errorMessage,
     };
